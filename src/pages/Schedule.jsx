@@ -1,21 +1,21 @@
 import styled from 'styled-components';
 import theme from '../styles/theme';
-import { timeList, careTimeList } from '../constants/staticData';
+import { timeList, careTimeList } from '../temp/staticData';
 
-const Schedule = () => {
+export default function Schedule() {
   return (
     <ContainerStyled>
       <h2>돌봄 스케줄을 설정해주세요</h2>
       <InputWrapStyled>
         <CalendarWrapStyled>
-          <div>시작일</div>
+          <span>시작일</span>
           <CalendarButton>
             <span>월 일</span>
             <span>아이콘</span>
           </CalendarButton>
         </CalendarWrapStyled>
         <CalendarWrapStyled>
-          <div>종료일</div>
+          <span>종료일</span>
           <CalendarButton>
             <span>월 일</span>
             <span>아이콘</span>
@@ -23,19 +23,19 @@ const Schedule = () => {
         </CalendarWrapStyled>
       </InputWrapStyled>
       <SelectWrapStyled>
-        <div>돌봄 시작 시간</div>
+        <span>돌봄 시작 시간</span>
         <select name="돌봄 시작 시간">
-          {timeList.map((el, idx) => {
-            return <option key={idx}>{el.text}</option>;
-          })}
+          {timeList.map((el, idx) => (
+            <option key={idx}>{el.text}</option>
+          ))}
         </select>
       </SelectWrapStyled>
       <SelectWrapStyled>
-        <div>하루 돌봄 시간</div>
-        <select name="" id="">
-          {careTimeList.map((el, idx) => {
-            return <option key={idx}>{el.text}</option>;
-          })}
+        <span>하루 돌봄 시간</span>
+        <select name="하루 돌봄 시간">
+          {careTimeList.map((el, idx) => (
+            <option key={idx}>{el.text}</option>
+          ))}
         </select>
       </SelectWrapStyled>
       <NoticeStyled>
@@ -43,7 +43,7 @@ const Schedule = () => {
       </NoticeStyled>
     </ContainerStyled>
   );
-};
+}
 
 const ContainerStyled = styled.div`
   width: 768px;
@@ -65,12 +65,14 @@ const CalendarWrapStyled = styled.div`
     margin-right: 20px;
   }
 `;
-const CalendarButton = styled.div`
+const CalendarButton = styled.button`
   backgound: ${theme.inputGray};
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 15px;
+  border: 0;
+  outline: 0;
   &:hover {
     outline: 2px solid ${theme.fontColor};
     cursor: pointer;
@@ -97,5 +99,3 @@ const NoticeStyled = styled.div`
   padding: 1em;
   color: rgb(20, 27, 77);
 `;
-
-export default Schedule;
