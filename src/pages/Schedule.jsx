@@ -93,7 +93,8 @@ const CalendarButton = styled.button`
 `;
 
 const Notice = styled.div`
+  width: 328px;
   background: rgb(244, 247, 255);
-  padding: 1em;
+  padding: 0.5em;
   color: rgb(20, 27, 77);
 `;
