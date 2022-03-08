@@ -42,7 +42,6 @@ const Container = styled.div`
   left: 0px;
   right: 0px;
   top: 0px;
-  overflow-y: scroll;
   color: ${({ theme }) => theme.fontColor};
 `;
 const CalendarWrap = styled.div`
